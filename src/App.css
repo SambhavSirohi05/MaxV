@@ -1,0 +1,250 @@
+:root {
+  --color-dark: #1a1a1a;
+  --color-light: #ffffff;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-light);
+}
+
+body {
+  font-family: var(--font-display);
+  cursor: none;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Simple Background */
+.simple-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  z-index: 0;
+}
+
+/* Wave Canvas */
+.wave-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.12;
+}
+
+/* Hero Container */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Image Layers */
+.image-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.image-layer img {
+  width: 80%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  will-change: transform;
+}
+
+.image-base {
+  z-index: 2;
+}
+
+.image-reveal {
+  z-index: 3;
+  transition: clip-path 0.05s ease-out;
+}
+
+/* UI Container */
+.ui-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+/* Name Block */
+.name-block {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  transition: color 300ms ease, transform 300ms ease;
+}
+
+.name-line {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgb(237, 237, 237);
+}
+
+.name-line:first-child {
+  color: rgb(237, 237, 237);
+}
+
+.name-line:last-child {
+  color: rgb(237, 237, 237);
+}
+
+.scroll-text {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgb(237, 237, 237);
+  font-family: var(--font-display);
+}
+
+/* Portfolio Link */
+.portfolio-link {
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 300ms ease, transform 300ms ease;
+}
+
+.portfolio-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.portfolio-link:hover::after {
+  width: 100%;
+}
+
+/* Social Icons */
+.social-icons {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  gap: 24px;
+  transition: transform 300ms ease;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-dark);
+  transition: color 300ms ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .name-block {
+    top: 30px;
+    left: 30px;
+  }
+
+  .name-line {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .portfolio-link {
+    top: 40px;
+    right: 30px;
+    font-size: 1.1rem;
+  }
+
+  .social-icons {
+    bottom: 30px;
+    right: 30px;
+    gap: 20px;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-block {
+    top: 20px;
+    left: 20px;
+  }
+
+  .name-line {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .portfolio-link {
+    top: 30px;
+    right: 20px;
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    bottom: 20px;
+    right: 20px;
+    gap: 16px;
+  }
+
+  .social-icon {
+    width: 22px;
+    height: 22px;
+  }
+}

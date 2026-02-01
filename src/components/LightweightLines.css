@@ -1,0 +1,74 @@
+.lightweight-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    opacity: 0.3;
+    animation: wave 8s ease-in-out infinite;
+}
+
+.line-1 {
+    left: 15%;
+    background: linear-gradient(to bottom, transparent, #1e3a8a, transparent);
+    animation-delay: 0s;
+}
+
+.line-2 {
+    left: 30%;
+    background: linear-gradient(to bottom, transparent, #e10600, transparent);
+    animation-delay: -1s;
+}
+
+.line-3 {
+    left: 45%;
+    background: linear-gradient(to bottom, transparent, #f5c400, transparent);
+    animation-delay: -2s;
+}
+
+.line-4 {
+    left: 60%;
+    background: linear-gradient(to bottom, transparent, #1e3a8a, transparent);
+    animation-delay: -3s;
+}
+
+.line-5 {
+    left: 75%;
+    background: linear-gradient(to bottom, transparent, #e10600, transparent);
+    animation-delay: -4s;
+}
+
+.line-6 {
+    left: 90%;
+    background: linear-gradient(to bottom, transparent, #f5c400, transparent);
+    animation-delay: -5s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateX(0) scaleY(1);
+    }
+
+    25% {
+        transform: translateX(-20px) scaleY(0.95);
+    }
+
+    50% {
+        transform: translateX(0) scaleY(1);
+    }
+
+    75% {
+        transform: translateX(20px) scaleY(0.95);
+    }
+}
