@@ -89,7 +89,17 @@ body {
 
 .image-reveal {
   z-index: 3;
-  transition: clip-path 0.05s ease-out;
+}
+
+.liquid-mask {
+  overflow: visible;
+}
+
+.liquid-mask img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
 }
 
 /* UI Container */
